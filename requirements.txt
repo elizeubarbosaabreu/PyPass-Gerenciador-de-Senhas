@@ -1,0 +1,8 @@
+cffi==1.15.0
+clipboard==0.0.4
+cryptography==35.0.0
+pyAesCrypt==6.0.0
+pycparser==2.20
+pycrypto==2.6.1
+pyperclip==1.8.2
+PySimpleGUI==4.53.0
