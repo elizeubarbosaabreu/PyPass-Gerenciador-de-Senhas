@@ -102,7 +102,10 @@ f'''{servico}
             os.remove('temp.txt')
             servicod = resultado[0]
             usuariod = resultado[1]
-            senhad = '*******'       
+            
+            senhad = ''
+            for letras in resultado[2]:
+                senhad += '*'
             janela4 = janela.exibir(servicod, usuariod, senhad)
             
         if window == janela4 and event == 'Copiar_Usuario':
@@ -112,9 +115,9 @@ f'''{servico}
             clipboard.copy(resultado[2])
             sg.popup_timed('"Senha" na área de transverência', 'Use CTRL+C para colar')
         if window == janela4 and event == 'Ver_Senha':
-            senhad = resultado[2]            
+            senha_temp = resultado[2]            
             sg.popup_timed('Senha Recuperada',
-                           f'Olá sua senha é: {senhad}',
+                           f'Olá sua senha é: {senha_temp}',
                            font=('Any', 10),
                            text_color = 'green'
                            )
@@ -135,3 +138,4 @@ f'''{servico}
         webbrowser.open('https://github.com/elizeubarbosaabreu/Lorem-Ipsum-Generator.git')
         
 janela1.close()
+
