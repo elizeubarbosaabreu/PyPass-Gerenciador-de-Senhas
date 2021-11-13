@@ -24,13 +24,13 @@ from windowsofapp import windows_of_app
 # iniciadores
 janela = windows_of_app()    
 
-sg.theme('Reddit')
+sg.theme('SystemDefault')
 
 janela1, janela2, janela3, janela4 = janela.tela_inicial(), None, None, None
 
 while True:
     window, event, values = sg.read_all_windows()     
-####   
+#### Gerenciadores de janela  
     if window == janela1 and event == sg.WIN_CLOSED or event == 'Sair':
         break
     if window == janela2 and event == sg.WINDOW_CLOSED:
@@ -43,10 +43,10 @@ while True:
         janela4.hide()
         janela1.un_hide()
 
-    if window == janela1 and event == 'Novo_BD':        
+    if window == janela1 and event == 'Guardar Senha':        
         janela2 = janela.inserir_dados()
         janela1.hide()
-    if window == janela2 and event == 'Salvar_BD':
+    if window == janela2 and event == 'Salvar Senha':
         if values['-senha-'] == values['-confirmar-'] and values['-senha-'] != '':
             senha = values['-senha-']
             servico = values['-servico-']
@@ -83,7 +83,7 @@ f'''{servico}
                 )
         
     try:   
-        if window == janela1 and event == 'Abrir_BD':
+        if window == janela1 and event == 'Recuperar Senha':
             arquivo_cripto = sg.popup_get_file('Onde está a senha que você quer recuperar?')
             janela2 = janela.recuperar_senha()
             janela1.hide()
@@ -108,13 +108,13 @@ f'''{servico}
                 senhad += '*'
             janela4 = janela.exibir(servicod, usuariod, senhad)
             
-        if window == janela4 and event == 'Copiar_Usuario':
+        if window == janela4 and event == 'Copiar Usuario':
             clipboard.copy(resultado[1])
             sg.popup_timed('"Nome de Usuário" na área de transferência', 'Use CTRL+C para colar')
-        if window == janela4 and event == 'Copiar_Senha':
+        if window == janela4 and event == 'Copiar Senha':
             clipboard.copy(resultado[2])
             sg.popup_timed('"Senha" na área de transverência', 'Use CTRL+C para colar')
-        if window == janela4 and event == 'Ver_Senha':
+        if window == janela4 and event == 'Ver Senha':
             senha_temp = resultado[2]            
             sg.popup_timed('Senha Recuperada',
                            f'Olá sua senha é: {senha_temp}',
@@ -133,9 +133,8 @@ f'''{servico}
                  'Não nos responsabilizamos pelo esquecimento ou mal uso de suas senhas...'
                 )
     if window == janela1 and event == 'Linkedin':
-        webbrowser.open('https://www.linkedin.com/in/elizeu-barbosa-abreu-69965b218/')
+        webbrowser.open_new_tab('https://www.linkedin.com/in/elizeu-barbosa-abreu-69965b218/')
     if window == janela1 and event == 'GitHub':
-        webbrowser.open('https://github.com/elizeubarbosaabreu/Lorem-Ipsum-Generator.git')
+        webbrowser.open_new_tab('https://github.com/elizeubarbosaabreu/PyPass-Gerenciador-de-Senhas')
         
 janela1.close()
-

@@ -4,14 +4,14 @@ class windows_of_app:
     
     def tela_inicial(self):
         menu_def =[
-            ['&Arquivo', ['&Novo_BD', '&Abrir_BD', '&Sair']],            
+            ['&Arquivo', ['&Guardar Senha', '&Recuperar Senha', '&Sair']],            
             ['&Ajuda', ['&Manual do Software', '&Sobre o Autor', ['&Linkedin', '&GitHub']]]
             ]
 
         layout = [
             [sg.Menu(menu_def, tearoff=False, pad=(200, 1))],  
-            [sg.Stretch(), sg.Button('Novo_BD', font=('Roboto', 36)), sg.Stretch()],
-            [sg.Stretch(), sg.Button('Abrir_BD', font=('Roboto', 36)), sg.Stretch()]
+            [sg.Stretch(), sg.Button('Guardar Senha', size=(18, 1), font=('Roboto', 24)), sg.Stretch()],
+            [sg.Stretch(), sg.Button('Recuperar Senha', size=(18, 1),font=('Roboto', 24)), sg.Stretch()]
             ]        
         return sg.Window('PyPass - Gerenciador de Senhas', element_justification='c', layout=layout, finalize=True, resizable=True)
      
@@ -21,7 +21,7 @@ class windows_of_app:
             [sg.Stretch(), sg.Text('Nome do usuário:', size=(20, 1)), sg.Input(key='-user-'), sg.Stretch()],
             [sg.Stretch(), sg.Text('Senha:', size=(20, 1)), sg.Input(key='-senha-', password_char='*'), sg.Stretch()],
             [sg.Stretch(), sg.Text('Confirmar Senha:', size=(20, 1)), sg.Input(key='-confirmar-', password_char='*'), sg.Stretch()],
-            [sg.Stretch(), sg.Button('Salvar_BD'), sg.Stretch(), ]            
+            [sg.Stretch(), sg.Button('Salvar Senha'), sg.Stretch(), ]            
             ]
         return sg.Window('PyPass - Guardar Senha', layout=layout, finalize=True, resizable=True)
     
@@ -48,9 +48,9 @@ class windows_of_app:
         self.usuariod = usuariod
         self.senhad = senhad
         layout = [
-            [sg.Stretch(), sg.Text('SENHAS RECUPERADAS COM SUCESSO', font=('Any', 15)), sg.Stretch()],
+            [sg.Stretch(), sg.Text('SENHA RECUPERADA COM SUCESSO', font=('Any', 15)), sg.Stretch()],
             [sg.Text('SERVIÇO', font=('Any', 12), size=(10, 1)), sg.Text(servicod, font=('Any', 12), size=(25, 1)), sg.Stretch()],
-            [sg.Text('USUARIO', font=('Any', 12), size=(10, 1)), sg.Text(usuariod, font=('Any', 12), size=(25, 1)), sg.Button('Copiar_Usuario'), sg.Stretch()],
-            [sg.Text('SENHA', font=('Any', 12), size=(10, 1)), sg.Text(senhad, font=('Any', 12), size=(25 , 1), key='-ver_senha-'), sg.Button('Copiar_Senha'), sg.Button('Ver_Senha'), sg.Stretch()],
+            [sg.Text('USUARIO', font=('Any', 12), size=(10, 1)), sg.Text(usuariod, font=('Any', 12), size=(25, 1)), sg.Button('Copiar Usuario'), sg.Stretch()],
+            [sg.Text('SENHA', font=('Any', 12), size=(10, 1)), sg.Text(senhad, font=('Any', 12), size=(25 , 1), key='-ver_senha-'), sg.Button('Copiar Senha'), sg.Button('Ver Senha'), sg.Stretch()],
             ]
         return sg.Window('PyPass - Visualizar Senhas', layout=layout, finalize=True, resizable=True)
