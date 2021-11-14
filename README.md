@@ -8,12 +8,19 @@ Para ter o **PyPass Gerenciador de Senhas** você pode clonar o repositório com
 git clone https://github.com/elizeubarbosaabreu/PyPass-Gerenciador-de-Senhas.git
 ~~~
 Em seguida entre dentro da pasta com o comando e crie uma máquina virtual: 
-~~~shell
+~~~python
 cd PyPass-Gerenciador-de-Senhas
 python3 -m venv .venv
-source ./.venv/bin/activate
+source .venv/bin/activate
 ~~~
-Se você estiver usando o Windows vai usar apenas **python -m venv .venv** e **source .\.venv\bin\activate.bat**
+
+Se você estiver usando o Windows vai usar:
+~~~python
+cd PyPass-Gerenciador-de-Senhas
+python -m venv .venv
+source .venv\bin\activate.bat
+~~~
+
 Após criar e ativar a máquina virtual instale os requerimentos:
 ~~~shell
 pip install -r requirements.txt
